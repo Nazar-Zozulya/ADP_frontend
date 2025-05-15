@@ -1,0 +1,44 @@
+.small-user-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 10px 0px; */
+    gap: 10px;
+    /* width: 216px;
+    height: 84px; */
+}
+
+.s-u-c-img{
+    width: 60px;
+    height: 60px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.s-u-c-text-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+.s-u-c-name{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.s-u-c-date-to-reg{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
