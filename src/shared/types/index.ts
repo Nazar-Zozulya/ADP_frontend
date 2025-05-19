@@ -1,0 +1,1 @@
+export { type IError, type ISuccess, type Result } from './response'

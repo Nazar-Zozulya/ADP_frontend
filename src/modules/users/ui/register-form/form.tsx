@@ -2,16 +2,19 @@ import { useForm } from "react-hook-form";
 import { User } from "../../types";
 import { Input } from "../../../../shared";
 import "./form.style.css";
+import { useUserContext } from "../../context";
 
 export function RegisterForm() {
+	const { register: userRegister } = useUserContext()
+
 	const { register, handleSubmit, formState } = useForm<
-		Omit<User, "description" | "image">
+		Omit<User, "description" | "image" | 'dateToRegister'>
 	>({
 		mode: "onSubmit",
 	});
 
-	function onSubmit(data: Omit<User, "description" | "image">) {
-		console.log(1);
+	function onSubmit(data: Omit<User, "description" | "image" | 'dateToRegister'>) {
+		userRegister(data.name, data.surname, data.email, data.password)
 	}
 
 	return (
