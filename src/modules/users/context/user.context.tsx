@@ -6,9 +6,8 @@ import {
 	useState,
 } from "react";
 import { User } from "../types";
-import { Response } from "../../../shared/index";
 import { useAuth } from "../hooks/useAuth";
-import { Result } from "../../../shared/types";
+import { get } from "http";
 
 interface IUserContext {
 	user: User | null;
@@ -48,10 +47,10 @@ export function useUserContext() {
 	return useContext(userContext);
 }
 
-export function UserContextProvider(children: ReactNode) {
+export function UserContextProvider({children}: {children: ReactNode}) {
 	const [user, setUser] = useState<User | null>(null);
 	const [token, setToken] = useState<string | null>(null);
-    const { login: hookLogin, register: hookRegister, getMe } = useAuth()
+    const { login: hookLogin, register: hookRegister, getMe: hookGetMe } = useAuth()
 
 	function isAuthenticated() {
 		if (user === null) {
@@ -69,7 +68,6 @@ export function UserContextProvider(children: ReactNode) {
 
         const getMeResponse = await getMe(loginResponse)
 
-        setUser(getMeResponse.data)
     }
 
     async function register(name:string, surname:string, email: string, password: string){
@@ -81,13 +79,29 @@ export function UserContextProvider(children: ReactNode) {
 
         const getMeResponse = await getMe(registerResponse)
 
-        setUser(getMeResponse.data)
     }
+
+
+	async function getMe(token: string){
+		const getMe = await hookGetMe(token)
+
+		if (getMe.status === 'error') return
+
+		// console.log(getMe)
+
+		return setUser(getMe)
+	}
 
 	useEffect(() => {
 		if (token === null) return;
 		localStorage.setItem("token", token);
+
+		getMe(token)
 	}, [token]);
+
+	useEffect(()=>{
+		console.log(user)
+	}, [user])
 
 	useEffect(() => {
 		const token = localStorage.getItem("token");

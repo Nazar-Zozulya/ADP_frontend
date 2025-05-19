@@ -38,7 +38,7 @@ export function useAuth(){
     async function register(name: string, surname: string, email: string, password: string) {
          try {
             setIsLoading(true);
-            const response = await fetch("http://127.0.0.1:8000/user/register", {
+            const response = await fetch("http://127.0.0.1:8000/users/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'
@@ -66,11 +66,11 @@ export function useAuth(){
          try {
             setIsLoading(true);
             const response = await fetch("http://127.0.0.1:8000/users/me", {
-                method: "POST",
+                method: "GET",
                 headers: {
-                    "Content-Type": 'application/json'
+                    "Content-Type": 'application/json',
+                    'Authorization': `Token ${token}`,
                 },
-                body: token
             });
 
             const result = await response.json();

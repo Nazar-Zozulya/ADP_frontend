@@ -1,8 +1,11 @@
+import { AppProviders } from "./providers";
 import { AppRoutes } from "./routes";
 
 
 export function App(){
     return(
-        <AppRoutes></AppRoutes>
+        <AppProviders>
+            <AppRoutes />
+        </AppProviders>
     )
 }

@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { User } from "../../types";
-import { Input } from "../../../../shared";
+import { Input } from "../../../../shared/input";
 import "./form.style.css";
 import { useUserContext } from "../../context";
 
