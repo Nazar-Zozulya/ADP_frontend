@@ -1,1 +1,1 @@
-export { type IError, type ISuccess, type Result } from './response'
+export { type Error, type Success, type Result } from './result'

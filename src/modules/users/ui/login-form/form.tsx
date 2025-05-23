@@ -2,11 +2,10 @@ import { useForm } from "react-hook-form";
 import { User } from "../../types";
 import "./form.style.css";
 import { Input } from "../../../../shared/input";
-import { useUserContext } from "../../context";
 import { useAuth } from "../../hooks/useAuth";
 
 export function LoginForm() {
-	const { login } = useUserContext()
+	const { login } = useAuth()
 	// const { login } = useAuth()
 	// const { login } 
 	const { register, handleSubmit, formState } = useForm<

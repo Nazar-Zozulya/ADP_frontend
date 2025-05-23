@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { User } from "../../types";
 import { Input } from "../../../../shared/input";
 import "./form.style.css";
-import { useUserContext } from "../../context";
+import { useAuth } from "../../hooks/useAuth";
 
 export function RegisterForm() {
-	const { register: userRegister } = useUserContext()
+	const { register: userRegister } = useAuth()
 
 	const { register, handleSubmit, formState } = useForm<
 		Omit<User, "description" | "image" | 'dateToRegister'>
