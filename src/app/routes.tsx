@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Layout } from '../widgets/site'
+import { Layout } from '../widgets/site/layout'
 import { HomePage } from '../pages/home-page'
 import { CoursesListPage } from '../modules/courses/pages'
 import { RegisterPage } from '../modules/users/pages/register-page'

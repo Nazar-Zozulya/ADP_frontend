@@ -24,20 +24,15 @@ export function useAuth(){
             });
 
             if (result.status === 'error') {
-                // handleBackendError({
-                //     message: result.message ?? 'Unknown error',
-                //     code: result.code
-                // });
-                return result;
+                if (result.message === undefined) return result
+                setError(result.message)
+                return result
             }
+            // if(result)
 
             setUser(result.data);
-            return result;
+            return result
         } catch (error) {
-            // const networkError: AuthError = {
-            //     message: 'Network error',
-            //     type: 'SERVER'
-            // };
             setError(`${error}`);
             return {
                 status: 'error',
@@ -63,10 +58,8 @@ export function useAuth(){
             });
 
             if (result.status === 'error') {
-                // handleBackendError({
-                //     message: result.message ?? 'Unknown error',
-                //     code: result.code
-                // });
+                if (result.message === undefined) return result
+                setError(result.message)
                 return result;
             }
 
@@ -104,6 +97,8 @@ export function useAuth(){
             });
 
             if (result.status === 'error') {
+                if (result.message === undefined) return result
+                setError(result.message)
                 return result;
             }
 

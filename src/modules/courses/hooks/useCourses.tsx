@@ -9,7 +9,7 @@ export function useCourses() {
     async function getCourses() {
         try {
             setIsLoading(true);
-            const response = await fetch("http://127.0.0.1:8000/courses/all");
+            const response = await fetch("http://127.0.0.1:8000/api/courses/all");
 
             const result = await response.json();
 
