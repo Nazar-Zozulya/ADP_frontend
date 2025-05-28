@@ -1,4 +1,4 @@
-import "./page.style.css"
+import "./page.styles.css"
 
 export function HomePage(){
 

@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from '../widgets/site/layout'
 import { HomePage } from '../pages/home-page'
-import { CoursesListPage } from '../modules/courses/pages'
-import { RegisterPage } from '../modules/users/pages/register-page'
-import { LoginPage } from '../modules/users/pages/login-page'
+import { CoursesListPage } from '../pages/courses-list-page'
+import { RegisterPage } from '../pages/register-page'
+import { LoginPage } from '../pages/login-page'
 
-export function AppRoutes(){
-    return(
+export function AppRoutes() {
+    return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Layout></Layout>}>
@@ -14,6 +14,7 @@ export function AppRoutes(){
                     <Route path='/courses' element={<CoursesListPage />} />
                     <Route path='/register' element={<RegisterPage />} />
                     <Route path='/login' element={<LoginPage />} />
+                    {/* <Ro></Ro> */}
                 </Route>
             </Routes>
         </BrowserRouter>

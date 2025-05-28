@@ -1,4 +1,4 @@
-import { Modal } from "../../../../shared/modal";
+import { Modal } from "../../../../shared/ui/modal";
 import { ICreateCourseModalProps } from "./modal.types";
 
 

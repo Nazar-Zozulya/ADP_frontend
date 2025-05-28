@@ -1,10 +1,10 @@
-import { LoginForm } from "../../ui";
+import { LoginForm } from "../../modules/users/ui";
 import "./page.style.css"
 
 
-export function LoginPage(){
+export function LoginPage() {
 
-    return(
+    return (
         <div className="login-page">
             <LoginForm />
         </div>

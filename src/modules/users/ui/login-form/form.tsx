@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { User } from "../../types";
 import "./form.style.css";
-import { Input } from "../../../../shared/input";
+import { Input } from "../../../../shared/ui/input";
 import { useAuth } from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 export function LoginForm() {
 	const { login } = useAuth()
@@ -70,9 +71,9 @@ export function LoginForm() {
 				<button className="r-form-submit-button">SEND</button>
 			</form>
 			<div className="r-form-nav-block">
-				<p className="r-form-nav-text r-form-selected">AUTH</p>
+				<Link to='/login' className="r-form-nav-text r-form-selected">AUTH</Link>
 				<p className="r-form-nav-text">/</p>
-				<p className="r-form-nav-text">REG</p>
+				<Link to='/register' className="r-form-nav-text">REG</Link>
 			</div>
 		</div>
 	);

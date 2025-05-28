@@ -1,5 +1,5 @@
-import { useCourses } from "../../hooks/useCourses"
-import { CourseCard } from "../../ui"
+import { useCourses } from "../../modules/courses/hooks"
+import { CourseCard } from "../../modules/courses/ui"
 import "./page.style.css"
 
 export function CoursesListPage(){

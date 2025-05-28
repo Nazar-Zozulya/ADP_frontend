@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import { User } from "../../types";
-import { Input } from "../../../../shared/input";
+import { Input } from "../../../../shared/ui/input";
 import "./form.style.css";
 import { useAuth } from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
+import { ImageSelectorButton } from "../../../../shared/ui/image-selector-button";
 
 export function RegisterForm() {
 	const { register: userRegister } = useAuth()
@@ -120,12 +122,14 @@ export function RegisterForm() {
 					})}
 				/>
 
+				<ImageSelectorButton></ImageSelectorButton>
+
 				<button className="r-form-submit-button">SEND</button>
 			</form>
 			<div className="r-form-nav-block">
-				<p className="r-form-nav-text">AUTH</p>
+				<Link to='/login' className="r-form-nav-text">AUTH</Link>
 				<p className="r-form-nav-text">/</p>
-				<p className="r-form-nav-text r-form-selected">REG</p>
+				<Link to='/register' className="r-form-nav-text r-form-selected">REG</Link>
 			</div>
 		</div>
 	);
