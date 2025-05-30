@@ -1,0 +1,47 @@
+.image-selector-button {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background-color: #B7B7B7;
+	border-radius: 20px;
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	overflow: hidden;
+	transition: background-color 0.3s ease;
+}
+
+/* Затемнение под иконкой */
+.image-selector-button::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0);
+	transition: background 0.3s ease;
+	pointer-events: none;
+	border-radius: 20px;
+	z-index: 1;
+}
+
+.image-selector-button:hover::after {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+/* Плюс-иконка поверх затемнения */
+.image-selector-button .plus-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60px;
+	height: 60px;
+	fill: white;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	z-index: 2;
+}
+
+.image-selector-button:hover .plus-icon {
+	opacity: 1;
+}

@@ -1,22 +1,23 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { User } from "../../types";
 import { Input } from "../../../../shared/ui/input";
 import "./form.style.css";
 import { useAuth } from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { ImageSelectorButton } from "../../../../shared/ui/image-selector-button";
+import { UserRegister } from "./form.types";
 
 export function RegisterForm() {
 	const { register: userRegister } = useAuth()
 
-	const { register, handleSubmit, formState } = useForm<
-		Omit<User, "description" | "image" | 'dateToRegister'>
+	const { register, handleSubmit, formState, control } = useForm<
+		UserRegister
 	>({
 		mode: "onSubmit",
 	});
 
-	function onSubmit(data: Omit<User, "description" | "image" | 'dateToRegister'>) {
-		userRegister(data.name, data.surname, data.email, data.password)
+	function onSubmit(data: UserRegister) {
+		userRegister(data.name, data.surname, data.email, data.password, data.image)
 	}
 
 	return (
@@ -121,8 +122,17 @@ export function RegisterForm() {
 						},
 					})}
 				/>
-
-				<ImageSelectorButton></ImageSelectorButton>
+				
+				<Controller
+					control={control}
+					name="image"
+					render={({ field: { value, onChange } }) => (
+						<ImageSelectorButton
+							value={value}
+							onChange={onChange}
+						/>
+					)}
+				/>
 
 				<button className="r-form-submit-button">SEND</button>
 			</form>

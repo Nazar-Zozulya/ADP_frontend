@@ -85,7 +85,8 @@ export function useAuth(){
         name: string,
         surname: string,
         email: string,
-        password: string
+        password: string,
+        image: File,
     ): Promise<Result<string>> {
         setIsLoading(true);
         setError(null);
@@ -93,7 +94,7 @@ export function useAuth(){
         try {
             const result = await POST<string>({
                 endpoint: 'api/users/register',
-                body: { email, name, surname, password }
+                body: { email, name, surname, password, image }
             });
 
             if (result.status === 'error') {
