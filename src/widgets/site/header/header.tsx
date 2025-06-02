@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 export function Header(){
     const { isAuthenticated, user } = useUserContext()
 
-    useEffect(()=>{
-        if (user === null) return
-    }, [])
+    // useEffect(()=>{
+    //     if (user === null) return
+    // }, [])
 
     return(
         <div className="header">
@@ -19,7 +19,7 @@ export function Header(){
                 <Link to={'/courses'}>Курсы</Link>
                 {
                 isAuthenticated() ?
-                    <Link to={'/profile'}>1</Link> :
+                    <Link to={'/profile'}>{user?.name}</Link> :
                     <Link to={'/login'}>AUTH</Link>
                 }
             </div>

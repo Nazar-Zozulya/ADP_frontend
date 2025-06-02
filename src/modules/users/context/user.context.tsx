@@ -7,7 +7,7 @@ import {
 import { User } from "../types";
 
 interface IUserContext{
-    user: User | {}
+    user: User | null
     token: string | ''
     isAuthenticated: ()=> boolean
     setUser: (value: User)=> void
@@ -15,7 +15,7 @@ interface IUserContext{
 }
 
 const initialValue :IUserContext = {
-    user: {},
+    user: null,
     token: '',
     isAuthenticated: ()=> false,
     setUser: (value: User)=> {},
@@ -33,14 +33,20 @@ interface IUserContextProviderProps{
 }
 
 export function UserContextProvider(props: IUserContextProviderProps){
-    const [user, setUser] = useState<User | {}>({})
+    const [user, setUser] = useState<User | null>(null)
     const [token, setToken] = useState<string>('')
+
+
+    function isAuthenticated(){
+        if (!user) return false
+        return true
+    }
 
     return <UserContext.Provider
         value={{
             user: user,
             token: token,
-            isAuthenticated: () => false,
+            isAuthenticated: isAuthenticated,
             setUser: setUser,
             setToken: setToken,
         }}>

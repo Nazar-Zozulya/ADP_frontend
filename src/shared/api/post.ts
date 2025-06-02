@@ -13,7 +13,7 @@ export async function POST<T>(params: IPostRequestParams): Promise<Result<T>> {
 	const requestHeaders: HeadersInit = new Headers(headers);
     requestHeaders.set("Content-Type", "application/json")
     if (token){
-        requestHeaders.set("Authorization", `Bearer ${token}`)
+        requestHeaders.set("Authorization", `Token ${token}`)
     }
 	try{
 		const response = await fetch(`${BASE_URL}/${endpoint}`, {

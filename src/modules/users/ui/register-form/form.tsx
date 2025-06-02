@@ -17,7 +17,7 @@ export function RegisterForm() {
 	});
 
 	function onSubmit(data: UserRegister) {
-		userRegister(data.name, data.surname, data.email, data.password, data.image)
+		userRegister(data.name, data.surname, data.email, data.password)
 	}
 
 	return (
@@ -82,7 +82,7 @@ export function RegisterForm() {
 					/>
 				</div>
 
-				<Input
+				<Input.PasswordInput
 					label="Password"
 					error={formState.errors.password?.message}
 					register={register("password", {
@@ -101,7 +101,7 @@ export function RegisterForm() {
 					})}
 				/>
 
-				<Input
+				<Input.PasswordInput
 					label="Repeat password"
 					error={formState.errors.repeatPassword?.message}
 					register={register("repeatPassword", {
@@ -122,7 +122,7 @@ export function RegisterForm() {
 						},
 					})}
 				/>
-				
+{/* 				
 				<Controller
 					control={control}
 					name="image"
@@ -132,7 +132,7 @@ export function RegisterForm() {
 							onChange={onChange}
 						/>
 					)}
-				/>
+				/> */}
 
 				<button className="r-form-submit-button">SEND</button>
 			</form>

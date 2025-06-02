@@ -1,1 +1,2 @@
-export { PlusButton } from './plus-button'
+export { PlusIcon } from './plus-icon'
+export { EyeIcon } from './eye-icon'

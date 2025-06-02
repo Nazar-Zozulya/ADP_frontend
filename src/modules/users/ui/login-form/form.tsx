@@ -49,7 +49,7 @@ export function LoginForm() {
 					})}
 				/>
 
-				<Input
+				<Input.PasswordInput
 					label="Password"
 					error={formState.errors.password?.message}
 					register={register("password", {

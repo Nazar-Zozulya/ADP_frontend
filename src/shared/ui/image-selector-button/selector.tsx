@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { PlusButton } from "../icons";
+import { PlusIcon } from "../icons";
 import { ImageSelectorButtonProps as propsTypes } from './selector.types'
 import './selector.styles.css'
 
@@ -28,7 +28,7 @@ export function ImageSelectorButton({value, onChange}: propsTypes ){
 				backgroundColor: backgroundUrl ? "transparent" : "#B7B7B7",
 				backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : undefined,
 			}}>
-			<PlusButton width={60} height={60} fill="#FFF" className="plus-icon" />
+			<PlusIcon width={60} height={60} fill="#FFF" className="plus-icon" />
 
 			<input 
 				ref={inputRef}

@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-export function PlusButton(props: SVGProps<SVGSVGElement>) {
+export function PlusIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <svg
             viewBox="0 0 30 30"

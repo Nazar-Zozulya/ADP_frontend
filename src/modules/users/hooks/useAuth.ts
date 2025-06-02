@@ -86,7 +86,7 @@ export function useAuth(){
         surname: string,
         email: string,
         password: string,
-        image: File,
+        // image: File,
     ): Promise<Result<string>> {
         setIsLoading(true);
         setError(null);
@@ -94,7 +94,7 @@ export function useAuth(){
         try {
             const result = await POST<string>({
                 endpoint: 'api/users/register',
-                body: { email, name, surname, password, image }
+                body: { email, name, surname, password }
             });
 
             if (result.status === 'error') {
@@ -127,9 +127,10 @@ export function useAuth(){
             getMe(token);
         }
     }, []);
-    useEffect(()=> {
-        const newToken = localStorage.setItem('token', token);
-    }, [token])
+    
+    // useEffect(()=> {
+    //     const newToken = localStorage.setItem('token', token);
+    // }, [token])
 
     return { getMe, login, register }
 }
